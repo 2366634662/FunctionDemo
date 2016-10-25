@@ -1,15 +1,17 @@
-package utouu.functiondemo.fragment;
+package utouu.functiondemo.fragment.childfg;
+
 
 import android.view.View;
 
 import utouu.functiondemo.R;
 import utouu.functiondemo.base.BaseFragment;
 
-public class MineFragment extends BaseFragment {
+public class MusicFragment extends BaseFragment {
+
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_mine;
+        return R.layout.fragment_music;
     }
 
     @Override

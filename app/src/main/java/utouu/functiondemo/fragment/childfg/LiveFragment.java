@@ -1,21 +1,16 @@
-package utouu.functiondemo.fragment;
+package utouu.functiondemo.fragment.childfg;
 
 
-import android.support.v4.app.Fragment;
 import android.view.View;
 
 import utouu.functiondemo.R;
 import utouu.functiondemo.base.BaseFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class HomeFragment extends BaseFragment {
-
+public class LiveFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_live;
     }
 
     @Override

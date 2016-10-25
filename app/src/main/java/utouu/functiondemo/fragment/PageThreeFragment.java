@@ -6,7 +6,7 @@ import android.view.View;
 import utouu.functiondemo.R;
 import utouu.functiondemo.base.BaseFragment;
 
-public class ContactFragment extends BaseFragment {
+public class PageThreeFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {

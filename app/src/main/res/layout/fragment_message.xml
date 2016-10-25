@@ -1,13 +1,29 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="utouu.functiondemo.fragment.MessageFragment">
+    tools:context="utouu.functiondemo.fragment.PageTwoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.flyco.tablayout.CommonTabLayout
+        android:id="@+id/ctlayout_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tl:tl_iconVisible="false"
+        tl:tl_indicator_color="#000"
+        tl:tl_indicator_corner_radius="1.5dp"
+        tl:tl_indicator_height="3dp"
+        tl:tl_indicator_style="TRIANGLE"
+        tl:tl_indicator_width="10dp"
+        tl:tl_textSelectColor="@android:color/holo_red_light"
+        tl:tl_textUnselectColor="@android:color/black"
+        tl:tl_textsize="14sp" />
+
+
+    <utouu.functiondemo.view.MyViewPager
+        android:id="@+id/vp_fragment_page"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@id/ctlayout_title" />
 
-</FrameLayout>
+</RelativeLayout>

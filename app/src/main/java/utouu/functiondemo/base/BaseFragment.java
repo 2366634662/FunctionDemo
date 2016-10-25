@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Created by Du_Li on 2016/10/25.
  * Desc:Fragment懒加载
@@ -20,12 +23,17 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     private View convertView;
     private SparseArray<View> mViews;
 
+    private Unbinder mUnbinder;
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         if (convertView == null) {
+
             convertView = inflater.inflate(getLayoutId(), container, false);
+            mUnbinder = ButterKnife.bind(this, convertView);
             mViews = new SparseArray<>();
             initView(convertView);
             isInitView = true;
@@ -125,4 +133,9 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mUnbinder.unbind();
+    }
 }

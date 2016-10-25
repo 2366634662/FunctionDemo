@@ -10,12 +10,12 @@ import utouu.functiondemo.base.BaseFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MessageFragment extends BaseFragment {
+public class PageOneFragment extends BaseFragment {
 
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_message;
+        return R.layout.fragment_home;
     }
 
     @Override

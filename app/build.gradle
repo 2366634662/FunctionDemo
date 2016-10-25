@@ -24,6 +24,13 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    //各种Tab切换效果
+    //注解绑定
+
+    //加载网络是 根据网络请求状况来显示不同的布局
+
+    //compile 'com.github.MarnonDev:EasyStatusView:v1.0.0'
+
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
