@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.TextView;
 
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -29,7 +30,8 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.ctlayout_main_choice)
     CommonTabLayout ctlayoutMainChoice;
     @BindView(R.id.vp_main_page)
-    MyViewPager vpMainPage;
+    MyViewPager vpMainPage;//页面
+    private TextView textView;
     private String[] mTitles = {"页面一", "页面二", "页面三", "页面四"};
     private int[] mIconUnselectIds = {
             R.mipmap.nav_icon_home_nor, R.mipmap.nav_icon_order_nor,
