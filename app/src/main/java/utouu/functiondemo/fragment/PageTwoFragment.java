@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import utouu.functiondemo.R;
 import utouu.functiondemo.adapter.MyFragmentPagerAdapter;
-import utouu.functiondemo.base.BaseFragment;
+import utouu.functiondemo.framework.base.BaseFragment;
 import utouu.functiondemo.bean.TabEntity;
 import utouu.functiondemo.fragment.childfg.LiveFragment;
 import utouu.functiondemo.fragment.childfg.MusicFragment;

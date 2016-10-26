@@ -3,7 +3,7 @@ package utouu.functiondemo.fragment;
 import android.view.View;
 
 import utouu.functiondemo.R;
-import utouu.functiondemo.base.BaseFragment;
+import utouu.functiondemo.framework.base.BaseFragment;
 
 public class PageFourFragment extends BaseFragment {
 

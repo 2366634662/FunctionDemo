@@ -2,16 +2,11 @@ package utouu.functiondemo.fragment.childfg;
 
 
 import android.view.View;
-import android.widget.TextView;
 
-import butterknife.BindView;
 import utouu.functiondemo.R;
-import utouu.functiondemo.base.BaseFragment;
+import utouu.functiondemo.framework.base.BaseFragment;
 
 public class LiveFragment extends BaseFragment {
-
-    @BindView(R.id.ssss)
-    TextView ssss;
 
     @Override
     protected int getLayoutId() {
@@ -37,5 +32,4 @@ public class LiveFragment extends BaseFragment {
     public void onClick(View v) {
 
     }
-
 }

@@ -1,4 +1,4 @@
-package utouu.functiondemo.base;
+package utouu.functiondemo.framework.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -117,8 +117,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
         for (Object object : objects) {
             if (object instanceof Integer) {
-                if (object != -1)
-                    findView((int) object).setOnClickListener(this);
+                findView((int) object).setOnClickListener(this);
             }
             if (object instanceof View) {
                 ((View) object).setOnClickListener(this);

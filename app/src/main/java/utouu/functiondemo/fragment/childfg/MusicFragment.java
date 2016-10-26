@@ -4,7 +4,7 @@ package utouu.functiondemo.fragment.childfg;
 import android.view.View;
 
 import utouu.functiondemo.R;
-import utouu.functiondemo.base.BaseFragment;
+import utouu.functiondemo.framework.base.BaseFragment;
 
 public class MusicFragment extends BaseFragment {
 

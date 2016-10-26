@@ -1,4 +1,4 @@
-package utouu.functiondemo.base;
+package utouu.functiondemo.framework.base;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;

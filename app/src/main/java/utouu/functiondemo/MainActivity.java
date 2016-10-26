@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import utouu.functiondemo.adapter.MyFragmentPagerAdapter;
-import utouu.functiondemo.base.BaseActivity;
+import utouu.functiondemo.framework.base.BaseActivity;
 import utouu.functiondemo.bean.TabEntity;
 import utouu.functiondemo.fragment.PageThreeFragment;
 import utouu.functiondemo.fragment.PageFourFragment;
@@ -21,6 +21,9 @@ import utouu.functiondemo.fragment.PageOneFragment;
 import utouu.functiondemo.fragment.PageTwoFragment;
 import utouu.functiondemo.view.MyViewPager;
 
+/**
+ * 主页面
+ */
 public class MainActivity extends BaseActivity {
 
     @BindView(R.id.ctlayout_main_choice)
