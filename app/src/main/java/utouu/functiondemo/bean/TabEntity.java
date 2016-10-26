@@ -4,7 +4,7 @@ import com.flyco.tablayout.listener.CustomTabEntity;
 
 /**
  * Created by Du_Li on 2016/10/18.
- * Desc:
+ * Desc: 第三方tab切换需要的实体类
  */
 
 public class TabEntity implements CustomTabEntity {

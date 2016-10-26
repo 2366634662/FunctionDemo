@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Du_Li on 2016/10/25.
- * Desc:
+ * Desc:ViewPager 加Fragment的适配器
  */
 
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter {

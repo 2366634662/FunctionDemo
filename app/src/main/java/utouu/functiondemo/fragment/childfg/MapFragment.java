@@ -1,4 +1,4 @@
-package utouu.functiondemo.fragment;
+package utouu.functiondemo.fragment.childfg;
 
 
 import android.view.View;
@@ -6,12 +6,12 @@ import android.view.View;
 import utouu.functiondemo.R;
 import utouu.functiondemo.base.BaseFragment;
 
-public class PageOneFragment extends BaseFragment {
+public class MapFragment extends BaseFragment {
 
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_map;
     }
 
     @Override

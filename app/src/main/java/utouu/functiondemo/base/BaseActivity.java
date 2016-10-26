@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -14,7 +15,7 @@ import butterknife.Unbinder;
  * Desc:
  */
 
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener {
     /**
      * get activity layout
      */
@@ -29,6 +30,9 @@ public abstract class BaseActivity extends FragmentActivity {
      */
     protected abstract void initView(Bundle savedInstanceState);
 
+    /**
+     * init data
+     */
     protected abstract void initDatas();
 
     /*
@@ -66,6 +70,27 @@ public abstract class BaseActivity extends FragmentActivity {
 //        }
         mUnbinder.unbind();
     }
+
+    protected <T extends View> T findView(int id) {
+
+        T view = (T) findViewById(id);
+
+        return view;
+    }
+
+    protected void setOnClick(Object... objects) {
+
+        for (Object object : objects) {
+            if (object instanceof View) {
+                ((View) object).setOnClickListener(this);
+            }
+            if (object instanceof Integer) {
+                findView((int) object).setOnClickListener(this);
+            }
+        }
+
+    }
+
 
     @Override
     protected void onResume() {

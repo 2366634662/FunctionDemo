@@ -109,27 +109,22 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     /**
-     * 根据id设置点击事件
+     * 根据id或者View设置点击事件
      *
-     * @param ids
+     * @param objects
      */
-    protected void setOnClick(int... ids) {
+    protected void setOnClick(Object... objects) {
 
-        for (int id : ids) {
-            if (id != -1)
-                findView(id).setOnClickListener(this);
+        for (Object object : objects) {
+            if (object instanceof Integer) {
+                if (object != -1)
+                    findView((int) object).setOnClickListener(this);
+            }
+            if (object instanceof View) {
+                ((View) object).setOnClickListener(this);
+            }
+
         }
-
-    }
-
-    /**
-     * 根据view设置点击事件
-     *
-     * @param views
-     */
-    public void setOnClick(View... views) {
-        for (View view : views)
-            view.setOnClickListener(this);
 
     }
 
