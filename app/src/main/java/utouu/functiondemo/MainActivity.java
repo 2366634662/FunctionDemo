@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity {
     }
 
     /**
-     * gaidong l
+     * gaidong l打卡上课了；剪短发开了就上课了大家卡死
      */
     @Override
     protected void initDatas() {
