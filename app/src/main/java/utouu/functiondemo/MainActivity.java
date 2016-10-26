@@ -51,6 +51,9 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    /**
+     * gaidong l
+     */
     @Override
     protected void initDatas() {
         adapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
