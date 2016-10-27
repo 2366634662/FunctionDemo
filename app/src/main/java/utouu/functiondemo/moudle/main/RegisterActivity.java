@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.InputType;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,27 +14,27 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 import utouu.functiondemo.R;
-import utouu.functiondemo.bean.LoginInfoBean;
 import utouu.functiondemo.bean.RegistBean;
 import utouu.functiondemo.bean.ZhuceDataBean;
 import utouu.functiondemo.framework.base.BaseActivity;
 import utouu.functiondemo.framework.http.HttpCallBack;
 import utouu.functiondemo.framework.http.HttpHelper;
 import utouu.functiondemo.framework.util.LogUtils;
+import utouu.functiondemo.framework.util.RegularUtils;
+import utouu.functiondemo.framework.util.StringUtils;
+import utouu.functiondemo.framework.util.ToastUtil;
 
 /**
  * 注册页面
  */
 public class RegisterActivity extends BaseActivity implements Handler.Callback {
-    private String newName = "image.jpg";
-    private String actionUrl = "http://192.168.0.71:8086/HelloWord/myForm";
     // 头像
     String head;
     // 昵称
     private EditText zc_name;
     // 手机号输入框
-    private static EditText zc_phone_txt;
-    private   String phone;
+    private EditText zc_phone_txt;
+    private String phone;
 
     // 验证码输入框
     private EditText zc_key_txt;
@@ -57,7 +56,6 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
     private int time = 60;
     private Handler mHandler;
     private boolean showPwdFlag = false;// false 隐藏 true 显示
-    LoginInfoBean loginInfoBean;
     // 返回
     ImageView fanhui;
     ImageView yanjing;
@@ -100,9 +98,10 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
     protected void loadData() {
 
     }
+
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
+        switch (v.getId()) {
             // 发送验证码
             case R.id.zc_send:
                 // 手机号码
@@ -113,7 +112,7 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
                  */
                 // 1. 通过规则判断手机号
 
-                if (!judgePhoneNums(phoneNums)) {
+                if (!RegularUtils.isMobileExact(phoneNums)) {
                     Toast.makeText(this, "手机号码输入不正确", Toast.LENGTH_SHORT).show();
                 } else {
                     getDataIsExit();  //是第一次网络请求
@@ -145,25 +144,27 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
      * 判断手机号码是否存在  是第一次网络请求
      */
     public void getDataIsExit() {
+
         // 手机号码
         phone = zc_phone_txt.getText().toString();
 
         HttpHelper.getIsExitPhone(this, phone, new HttpCallBack<RegistBean>() {
             @Override
             public void onSuccess(RegistBean result) {
-                LogUtils.e("判断手机号码", result+"");
-                Gson gson = new Gson();
-                RegistBean regist = gson.fromJson(result.status, RegistBean.class);
-                status = regist.status;
-                if (status.equals("1")) {
-                    getDataRegisterTask();
+                LogUtils.e("判断手机号码返回结果" + result);
+                if (result != null) {
+                    if (result.status.equals("1")) {
+                        getDataRegisterTask();
 
-                } else if (status.equals("2")) {
-                    Toast.makeText(RegisterActivity.this, "手机号码已注册！", Toast.LENGTH_SHORT).show();
+                    } else if (result.status.equals("2")) {
+                        ToastUtil.showShortToast("手机号码已经注册");
+                    }
                 }
             }
+
             @Override
             public void onFail(String errMsg) {
+                LogUtils.e("判断手机号码返回的错误信息" + errMsg);
             }
         });
     }
@@ -171,30 +172,36 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
     /**
      * 验证码  是第二次网络请求
      */
-    public void getDataRegisterTask(){
+    public void getDataRegisterTask() {
+
 
         // 手机
         phone = zc_phone_txt.getText().toString();
         HttpHelper.getIsExitPhone(this, phone, new HttpCallBack<RegistBean>() {
             @Override
             public void onSuccess(RegistBean result) {
-                LogUtils.e("发送验证码成功", result + "");
-                Gson gson = new Gson();
-                RegistBean regist = gson.fromJson(result.code, RegistBean.class);
-                code = regist.code;
+                LogUtils.e("发送验证码成功---》》》" + result);
+                code = result.code;
                 mHandler.sendEmptyMessage(1);
+
+                ToastUtil.showShortToast("验证码发送成功 ！");
+                //发送验证码不可点击
+                zc_send.setClickable(false);
                 zc_phone_txt.setEnabled(false);
             }
+
             @Override
             public void onFail(String errMsg) {
-
+                ToastUtil.showShortToast("验证码发送失败，请重试 ！");
+                LogUtils.e("发送验证码失败---》》》" + errMsg);
             }
         });
     }
+
     /**
      * 注册 是第三次网络请求
      */
-    public void getDataRegist(){
+    public void getDataRegist() {
         // 昵称
         String username = zc_name.getText().toString();
         // 手机号码
@@ -205,6 +212,14 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
         String zfpwd = zf_pwd.getText().toString();
         // 输入的验证码
         yzcode = zc_key_txt.getText().toString();
+
+        if (StringUtils.isEmpty(username) && StringUtils.isEmpty(phone) &&
+                StringUtils.isEmpty(userpwd) && StringUtils.isEmpty(zfpwd)
+                && StringUtils.isEmpty(yzcode)) {
+            ToastUtil.showLongToast("输入的信息有误");
+            return;
+        }
+
         ZhuceDataBean data = new ZhuceDataBean();
         data.username = username;
         data.phone = phone;
@@ -212,74 +227,29 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
         data.zfpwd = zfpwd;
         Gson gson = new Gson();
         String where = gson.toJson(data);
-        if (code != null && code.equals(yzcode)) {
+        if (code.equals(yzcode)) {
             zc_register.setBackgroundResource(R.drawable.bg_red_radius5);
             zc_register.setEnabled(true);
-            if(!username.equals("") && !phone.equals("") && !userpwd.equals("")&& !zfpwd.equals("")){
-                HttpHelper.getRegister(this, where, new HttpCallBack<ZhuceDataBean>() {
-                    @Override
-                    public void onSuccess(ZhuceDataBean result) {
-                        LogUtils.e("注册成功", result + "");
-                        Toast.makeText(RegisterActivity.this, "恭喜您，注册成功！", Toast.LENGTH_SHORT).show();
-                        // 注册成功跳转到登录界面
-                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-                        finish();
-                    }
-                    @Override
-                    public void onFail(String errMsg) {
-                    }
-                });
-            }else {
-                Toast.makeText(this, "存在错误信息", Toast.LENGTH_SHORT).show();
-            }
+            HttpHelper.getRegister(this, where, new HttpCallBack<ZhuceDataBean>() {
+                @Override
+                public void onSuccess(ZhuceDataBean result) {
+                    LogUtils.e("注册成功" + result);
+                    ToastUtil.showShortToast("恭喜您，注册成功！");
+                    // 注册成功跳转到登录界面
+                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                    finish();
+                }
+
+                @Override
+                public void onFail(String errMsg) {
+                    LogUtils.e("注册失败原因---》》》" + errMsg);
+                }
+            });
         } else {
-            Toast.makeText(RegisterActivity.this, "没有发送验证码或验证码不正确！", Toast.LENGTH_SHORT).show();
-            zc_register.setBackgroundResource(R.drawable.gray_solid_circle_shape);
-            zc_register.setEnabled(false);
+            ToastUtil.showShortToast("请输入正确的验证码");
         }
     }
 
-    /**
-     * 判断手机号码是否合理
-     *
-     * @param phoneNums
-     */
-    private boolean judgePhoneNums(String phoneNums) {
-        if (isMatchLength(phoneNums, 11) && isMobileNO(phoneNums)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    /**
-     * 判断一个字符串的位数
-     *
-     * @param str
-     * @param length
-     * @return
-     */
-    public static boolean isMatchLength(String str, int length) {
-        if (str.isEmpty()) {
-            return false;
-        } else {
-            return str.length() == length ? true : false;
-        }
-    }
-    /**
-     * 验证手机格式
-     */
-    public static boolean isMobileNO(String mobileNums) {
-		/*
-		 * 移动：134、135、136、137、138、139、150、151、157(TD)、158、159、187、188
-		 * 联通：130、131、132、152、155、156、185、186 电信：133、153、180、189、（1349卫通）
-		 * 总结起来就是第一位必定为1，第二位必定为3或5或8，其他位置的可以为0-9
-		 */
-        String telRegex = "[1][358]\\d{9}";// "[1]"代表第1位为数字1，"[358]"代表第二位可以为3、5、8中的一个，"\\d{9}"代表后面是可以是0～9的数字，有9位。
-        if (TextUtils.isEmpty(mobileNums))
-            return false;
-        else
-            return mobileNums.matches(telRegex);
-    }
 
     @Override
     public boolean handleMessage(Message msg) {
@@ -309,6 +279,7 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
         }
         return false;
     }
+
     //程序退出  将消息移空  避免APP一直在后台发送无用消息
     @Override
     protected void onDestroy() {

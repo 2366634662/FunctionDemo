@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.TextView;
 
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -14,12 +13,12 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import utouu.functiondemo.adapter.MyFragmentPagerAdapter;
-import utouu.functiondemo.framework.base.BaseActivity;
 import utouu.functiondemo.bean.TabEntity;
-import utouu.functiondemo.fragment.PageThreeFragment;
 import utouu.functiondemo.fragment.PageFourFragment;
 import utouu.functiondemo.fragment.PageOneFragment;
+import utouu.functiondemo.fragment.PageThreeFragment;
 import utouu.functiondemo.fragment.PageTwoFragment;
+import utouu.functiondemo.framework.base.BaseActivity;
 import utouu.functiondemo.view.MyViewPager;
 
 /**
@@ -30,8 +29,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.ctlayout_main_choice)
     CommonTabLayout ctlayoutMainChoice;
     @BindView(R.id.vp_main_page)
-    MyViewPager vpMainPage;//页面
-    private TextView textView;
+    MyViewPager vpMainPage;
     private String[] mTitles = {"页面一", "页面二", "页面三", "页面四"};
     private int[] mIconUnselectIds = {
             R.mipmap.nav_icon_home_nor, R.mipmap.nav_icon_order_nor,
@@ -53,9 +51,6 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    /**
-     * gaidong l打卡上课了；剪短发开了就上课了大家卡死
-     */
     @Override
     protected void initDatas() {
         adapter = new MyFragmentPagerAdapter(getSupportFragmentManager());

@@ -8,7 +8,6 @@ import utouu.functiondemo.framework.base.BaseFragment;
 
 public class PageOneFragment extends BaseFragment {
 
-
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_home;

@@ -6,6 +6,11 @@ package utouu.functiondemo.framework;
  */
 
 public class UrlUtils {
+
+
+    public static final String BASE_URL = "";
+
+
     // 服务器
     public static final String SOULOFER_HEAD = "http://z-jc.cn/";
 
@@ -19,4 +24,5 @@ public class UrlUtils {
     public static final String SMART_LOGIN = SOULOFER_HEAD + "Api/User/one";
     // 邀请的朋友
     public static final String MY_FRIEND = "http://115.29.176.130/yunhuitong/myFriend.php";
+
 }

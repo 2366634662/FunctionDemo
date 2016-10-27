@@ -1,0 +1,66 @@
+XML
+        <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+Adpater
+  public TestRecy(Context context) {
+        super(context);
+    }
+
+    @Override
+    public void initdatas(RecyclerViewHolder holder, Bean bean, int position) {
+        holder.setText(R.id.tv_recyclerView, bean.name);
+    }
+
+    @Override
+    public int itemLayoutId() {
+        return R.layout.item_rcyclerview;
+    }
+
+Activity
+    private RecyclerView rv_test;
+    private List<Bean> mDatas;
+    private TestRecy adapter;
+
+    rv_test = (RecyclerView) findViewById(R.id.rv_test);
+    //布局管理器
+    LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+    rv_test.setLayoutManager(layoutManager);
+     //实例化
+     adapter = new TestRecy(this);
+     rv_test.setAdapter(adapter);
+     //放数据
+     adapter.setmDatas(mDatas);
+     adapter.notifyDataSetChanged();
+
+
+     /**********************************分割线***********************************************/
+/*----------------------------------------------------------------------------------------------------*/
+     使用MyDividerItemDecoration
+
+     水平分割线  相当于ListView分割线
+     mRecyclerView.addItemDecoration(new MyDividerItemDecoration(this, MyDividerItemDecoration.VERTICAL_LIST));
+     垂直分割线
+     mRecyclerView.addItemDecoration(new MyDividerItemDecoration(this, MyDividerItemDecoration.HORIZONTAL_LIST));
+
+     自定义分割线
+     drawable 中画出分割线
+     <?xml version="1.0" encoding="utf-8"?>
+     <shape xmlns:android="http://schemas.android.com/apk/res/android"
+         android:shape="rectangle">
+         <size android:height="4dp" />
+         <gradient
+             android:centerColor="@android:color/holo_blue_bright"
+             android:endColor="#ff0000ff"
+             android:startColor="#ffff0000"
+             android:type="linear" />
+     </shape>
+     Styles中添加代码
+     <item name="android:listDivider">@drawable/divider</item>
+
+/*--------------------------------------------------------------------------------------*/
+     使用DividerGridItemDecoration分割线加水平垂直线一起
+
+     mRecyclerView.addItemDecoration(new DividerGridItemDecoration(getContext()));
