@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 类名称 ：StringUtils 类描述 ：String判断处理工具类 创建人 ：李章丰 创建时间：下午3:02:09
  */
 public class StringUtils {
 
