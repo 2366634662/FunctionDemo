@@ -22,15 +22,13 @@ import utouu.functiondemo.framework.util.ToastUtil;
 /**
  * 登陆页面
  */
+
 public class LoginActivity extends BaseActivity{
     private EditText zc_name;
     private EditText zc_password;
     private Button login;//登录
-
     private TextView forget; // 忘记密码
     private  TextView zhuce;//注册
-
-
 
     @Override
     protected int getLayout() {
@@ -134,12 +132,12 @@ public class LoginActivity extends BaseActivity{
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
             }
-
             @Override
             public void onFail(String errMsg) {
                 LogUtils.e("登录失败原因---》》》" + errMsg);
             }
         });
+    }
+}
 
-    }
-    }
+

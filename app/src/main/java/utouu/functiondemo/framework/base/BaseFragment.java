@@ -87,7 +87,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     protected abstract void initData();
 
     /**
-     * 获取数据
+     * 获取网络数据
      */
     protected abstract void getData();
 
