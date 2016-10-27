@@ -163,7 +163,7 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
 
             @Override
             public void onFail(String errMsg) {
-                LogUtils.e("判断手机号码返回的错误信息" + errMsg);
+                LogUtils.e("判断手机号码返回的错误信息---->>>" + errMsg);
             }
         });
     }
@@ -227,8 +227,8 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
         Gson gson = new Gson();
         String where = gson.toJson(data);
         if (code.equals(yzcode)) {
-            zc_register.setBackgroundResource(R.drawable.bg_red_radius5);
-            zc_register.setEnabled(true);
+            zc_register.setBackgroundResource(R.drawable.btn_selector);
+            zc_register.setClickable(true);
             HttpHelper.getRegister(this, where, new HttpCallBack<ZhuceDataBean>() {
                 @Override
                 public void onSuccess(ZhuceDataBean result) {
@@ -282,12 +282,18 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
     //程序退出  将消息移空  避免APP一直在后台发送无用消息
     @Override
     protected void onDestroy() {
+        time = 60;
+        zc_send.setText("获取验证码");
+        zc_send.setClickable(true);//设置为可点击
         mHandler.removeCallbacksAndMessages(null);
         super.onDestroy();
     }
 
     @Override
     protected void onPause() {
+        time = 60;
+        zc_send.setText("获取验证码");
+        zc_send.setClickable(true);//设置为可点击
         mHandler.removeCallbacksAndMessages(null);
         super.onPause();
     }

@@ -9,6 +9,7 @@ import utouu.functiondemo.R;
 import utouu.functiondemo.framework.base.BaseFragment;
 
 /**
+ * 视频播放
  */
 public class VideoFragment extends BaseFragment {
 
