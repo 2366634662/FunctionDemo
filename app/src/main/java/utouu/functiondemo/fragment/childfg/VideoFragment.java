@@ -2,7 +2,9 @@ package utouu.functiondemo.fragment.childfg;
 
 
 import android.view.View;
+import android.widget.ListView;
 
+import butterknife.BindView;
 import utouu.functiondemo.R;
 import utouu.functiondemo.framework.base.BaseFragment;
 
@@ -10,6 +12,9 @@ import utouu.functiondemo.framework.base.BaseFragment;
  */
 public class VideoFragment extends BaseFragment {
 
+
+    @BindView(R.id.lv_video_player)
+    ListView lvVideoPlayer;
 
     @Override
     protected int getLayoutId() {
@@ -35,4 +40,5 @@ public class VideoFragment extends BaseFragment {
     public void onClick(View v) {
 
     }
+
 }

@@ -47,4 +47,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     provided 'com.nineoldandroids:library:2.4.0'
+    compile 'fm.jiecao:jiecaovideoplayer:4.8.1'
 }

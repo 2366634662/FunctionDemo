@@ -6,4 +6,7 @@ package utouu.functiondemo.framework;
  */
 
 public class UrlUtils {
+
+    public static final String BASE_URL = "";
+
 }

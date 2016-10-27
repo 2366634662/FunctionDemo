@@ -1,0 +1,39 @@
+XML
+    <ListView
+        android:id="@+id/lv_listadapter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+Adapter
+    public Test(Context context) {
+        super(context);
+    }
+    @Override
+    public void initDatas(ViewHolder holder, Bean bean) {
+        /**
+         * ViewHolder封装的设置TextView的方法
+         */
+        holder.setText(R.id.tv_id, bean.id)
+                .setText(R.id.tv_name, bean.name)
+        ;
+        /**
+         * 调用ViewHolder 的getView 相当于findViewById  强转  设置内容
+         */
+        //((TextView)holder.findViewByIdNoCast(R.id.tv_id)).setText("");
+        //TextView t  = holder.findViewByIdNoCast(R.id.tv_id);
+    }
+    /**
+     * @return Item布局Id
+     */
+    @Override
+    public int itemLayoutId() {
+        return R.layout.item_list;
+    }
+Activity中
+        adapter = new Test(this);
+        lv_listadapter = (ListView) findViewById(R.id.lv_listadapter);
+
+        lv_listadapter.setAdapter(adapter);
+        //放数据
+         adapter.setListDatas(mDatas);
+         adapter.notifyDataSetChanged();
