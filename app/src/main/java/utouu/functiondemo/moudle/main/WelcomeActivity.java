@@ -34,7 +34,7 @@ public class WelcomeActivity extends BaseActivity implements Handler.Callback {
     protected void initDatas() {
         mHandler = new Handler(this);
         iv_welcome_bg.setBackgroundResource(R.drawable.welcome_icon);
-        mHandler.sendEmptyMessageDelayed(1, 4000);
+        mHandler.sendEmptyMessageDelayed(1, 2000);
 
     }
 
