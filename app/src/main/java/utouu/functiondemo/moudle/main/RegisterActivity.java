@@ -140,12 +140,14 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
         }
 
     }
+
     /**
      * 判断手机号码是否存在  是第一次网络请求
      */
     public void getDataIsExit() {
         // 手机号码
         phone = zc_phone_txt.getText().toString();
+
         HttpHelper.getIsExitPhone(this, phone, new HttpCallBack<RegistBean>() {
             @Override
             public void onSuccess(RegistBean result) {

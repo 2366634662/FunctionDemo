@@ -10,6 +10,7 @@ import utouu.functiondemo.framework.base.BaseActivity;
  * 登陆页面
  */
 public class LoginActivity extends BaseActivity {
+
     @Override
     protected int getLayout() {
         return R.layout.activity_login;
