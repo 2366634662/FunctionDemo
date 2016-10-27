@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
-
 import utouu.functiondemo.R;
 import utouu.functiondemo.framework.base.BaseActivity;
 import utouu.functiondemo.framework.sharedpreferences.SharePrefreceHelper;

@@ -36,5 +36,16 @@ public class HttpHelper {
                 .execute(callBack);
 
     }
+    //登录
+    public  static  void getLogin(Context context,String where, HttpCallBack callBack){
+        OkHttpUtils
+                .get()
+                .url(UrlUtils.SMART_LOGIN)
+                .addParams("key", "1")
+                .addParams("where", where)
+                .build()
+                .execute(callBack);
+
+    }
 
 }

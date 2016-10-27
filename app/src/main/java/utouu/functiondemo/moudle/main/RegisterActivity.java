@@ -147,6 +147,7 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
 
         // 手机号码
         phone = zc_phone_txt.getText().toString();
+
         HttpHelper.getIsExitPhone(this, phone, new HttpCallBack<RegistBean>() {
             @Override
             public void onSuccess(RegistBean result) {
@@ -172,8 +173,6 @@ public class RegisterActivity extends BaseActivity implements Handler.Callback {
      * 验证码  是第二次网络请求
      */
     public void getDataRegisterTask() {
-
-
         // 手机
         phone = zc_phone_txt.getText().toString();
         HttpHelper.getIsExitPhone(this, phone, new HttpCallBack<RegistBean>() {

@@ -13,20 +13,19 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity android:name=".moudle.main.LoginActivity" />
-        <activity android:name=".moudle.main.RegisterActivity"></activity>
-        <activity android:name=".moudle.main.WelcomeActivity">
 
-        </activity>
         <activity android:name=".moudle.main.GuideActivity" />
         <activity android:name=".moudle.main.ForgetPwdActivity" />
-        <activity android:name=".moudle.main.other.MyGuideActivity">
+        <activity android:name=".moudle.main.other.MyGuideActivity" />
+        <activity android:name=".moudle.main.RegisterActivity"></activity>
+        <activity android:name=".moudle.main.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
         </activity>
+        <activity android:name=".moudle.main.ForgetActivity"></activity>
     </application>
 
 </manifest>

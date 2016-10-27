@@ -47,11 +47,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     provided 'com.nineoldandroids:library:2.4.0'
-
     compile 'fm.jiecao:jiecaovideoplayer:4.8.1'
-
-
-    //okhttp
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.zhy:okhttputils:2.6.2'
 
