@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import butterknife.ButterKnife;
@@ -15,7 +15,7 @@ import butterknife.Unbinder;
  * Desc:
  */
 
-public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener {
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * get activity layout
      */
@@ -48,13 +48,17 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        try {
-//            EventBus.getDefault().register(this);
-//        } catch (NoClassDefFoundError ignored) {
-//        }
+
         mContext = this;
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(getLayout());
+
+//        try {
+//            EventBus.getDefault().register(this);
+//        } catch (NoClassDefFoundError ignored) {
+//            LogUtils.e("异常---》》》" + ignored.toString());
+//        }
+
         mUnbinder = ButterKnife.bind(this);
         initView(savedInstanceState);
         initDatas();

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import utouu.functiondemo.R;
 import utouu.functiondemo.framework.base.BaseActivity;
@@ -16,14 +17,16 @@ import utouu.functiondemo.moudle.main.LoginActivity;
 public class MyGuideActivity extends BaseActivity {
 
     private ViewPager vp_myguide_bg;
+
     private ImageView[] imageViews = new ImageView[3];
 
     private Integer[] img_ids = {R.id.iv_icon1, R.id.iv_icon2, R.id.iv_icon3};
 
     private Integer[] img_vg = {R.mipmap.guide_01, R.mipmap.guide_03, R.mipmap.guide_04};
 
-
     private Button btn_myguide_getin;
+
+    private LinearLayout llayout_point;
 
     @Override
     protected int getLayout() {
@@ -35,10 +38,14 @@ public class MyGuideActivity extends BaseActivity {
         vp_myguide_bg = findView(R.id.vp_myguide_bg);
         btn_myguide_getin = findView(R.id.btn_myguide_getin);
 
+        llayout_point = findView(R.id.llayout_point);
+
         setOnClick(btn_myguide_getin);
 
-        for (int i = 0; i < img_ids.length; i++) {
-            imageViews[i] = findView(img_ids[i]);
+        for (int i = 0; i < imageViews.length; i++) {
+//            imageViews[i] = findView(img_ids[i]);
+            //另外种找ID 的方式   通过getChildAt（i） 可以拿到这个线性布局包含的所有的控件
+            imageViews[i] = (ImageView) llayout_point.getChildAt(i);
         }
     }
 
@@ -97,7 +104,6 @@ public class MyGuideActivity extends BaseActivity {
 
             }
         });
-
 
     }
 

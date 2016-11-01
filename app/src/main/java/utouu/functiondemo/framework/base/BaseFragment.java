@@ -35,7 +35,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             convertView = inflater.inflate(getLayoutId(), container, false);
             mUnbinder = ButterKnife.bind(this, convertView);
             mViews = new SparseArray<>();
-            initView(convertView);
+            initView(convertView, savedInstanceState);
             isInitView = true;
             lazyLoadData();
             initData();
@@ -79,7 +79,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     /**
      * 初始化控件
      */
-    protected abstract void initView(View convertView);
+    protected abstract void initView(View convertView, Bundle savedInstanceState);
 
     /**
      * 初始化数据

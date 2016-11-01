@@ -6,9 +6,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
+
 import utouu.functiondemo.R;
+import utouu.functiondemo.bean.LocationBean;
 import utouu.functiondemo.framework.base.BaseActivity;
 import utouu.functiondemo.framework.sharedpreferences.SharePrefreceHelper;
+import utouu.functiondemo.framework.util.LogUtils;
+import utouu.functiondemo.moudle.main.map.MapLocationUtils;
 
 /**
  * 欢迎页面
@@ -34,7 +38,21 @@ public class WelcomeActivity extends BaseActivity implements Handler.Callback {
         mHandler = new Handler(this);
         iv_welcome_bg.setBackgroundResource(R.drawable.welcome_icon);
         mHandler.sendEmptyMessageDelayed(1, 2000);
+        MapLocationUtils.getInstance()
+                .regAndStartLocation(this)
+                .setGetLocationDatas(new MapLocationUtils.GetLocationDatas() {
+                    @Override
+                    public void getLocationData(LocationBean locationBean) {
 
+                        LogUtils.e(locationBean.getAddress());
+
+                    }
+
+                    @Override
+                    public void getErrorMsg(String errCode, String errorInfo) {
+
+                    }
+                });
     }
 
     @Override
@@ -62,5 +80,11 @@ public class WelcomeActivity extends BaseActivity implements Handler.Callback {
         }
 
         return false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MapLocationUtils.getInstance().stopLocation();
     }
 }

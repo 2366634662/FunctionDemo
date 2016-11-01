@@ -1,6 +1,7 @@
 package utouu.functiondemo.fragment.childfg;
 
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
@@ -23,7 +24,7 @@ public class VideoFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView(View convertView) {
+    protected void initView(View convertView, Bundle savedInstanceState) {
 
     }
 
