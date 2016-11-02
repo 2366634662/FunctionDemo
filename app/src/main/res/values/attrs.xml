@@ -60,15 +60,61 @@
         <attr name="banner_isNeedShowIndicatorOnOnlyOnePage" format="boolean" />
     </declare-styleable>
 
-    <declare-styleable name="CountTextEditTextView">
+    <declare-styleable name="CountDownButton">
 
-        <attr name="text_num" format="integer"/>
+        <attr name="count_time" format="integer" />
 
-        <attr name="view_line_color" format="color"/>
+        <attr name="text_color" format="color" />
+        <!--//开始的文字-->
+        <attr name="start_text" format="string" />
+
+        <attr name="end_text" format="string" />
 
 
+    </declare-styleable>
 
 
+    <declare-styleable name="SignInView">
+        <attr name="sign_in_bg_clor" format="color" />
+        <attr name="sign_in_pb_clor" format="color" />
+        <attr name="sign_in_check_clor" format="color" />
+        <attr name="sign_in_text_clor" format="color" />
+        <attr name="sign_in_text_size" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="WaveLineView">
+        <attr name="wave_first_color" format="color" />
+        <attr name="wave_second_color" format="color" />
+        <attr name="wave_line_width" format="dimension" />
+        <attr name="wave_phase" format="float" />
+        <attr name="wave_amplifier" format="float" />
+        <attr name="wave_frequency" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="ATDragView">
+        <attr name="seek_bg_color" format="color" />
+        <attr name="seek_pb_color" format="color" />
+        <attr name="seek_ball_solid_color" format="color" />
+        <attr name="seek_ball_stroke_color" format="color" />
+        <attr name="seek_text_color" format="color" />
+        <attr name="seek_text_size" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SwitchView">
+        <attr name="switch_bg_close_color" format="color" />
+        <attr name="switch_bg_open_color" format="color" />
+        <attr name="switch_strock_color" format="color" />
+        <attr name="switch_ball_color" format="color" />
+        <attr name="switch_ball_shadow_color" format="color" />
+        <attr name="switch_bg_strock_width" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CountDownCircleView">
+        <attr name="circle_bg_color" format="color" />
+        <attr name="circle_pb_color" format="color" />
+        <attr name="circle_pb_width" format="dimension" />
+        <attr name="circle_text_color" format="color" />
+        <attr name="circle_text_size" format="dimension" />
     </declare-styleable>
 
 

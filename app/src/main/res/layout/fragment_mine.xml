@@ -1,13 +1,87 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="utouu.functiondemo.fragment.PageFourFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <utouu.functiondemo.view.SendCodeButton
+                android:id="@+id/scb_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_selector"
+                android:padding="20dp"
+                android:textColor="@android:color/white"
+                app:count_time="60"
+                app:end_text="重新发送验证码！"
+                app:start_text="发送验证码" />
+
+            <utouu.functiondemo.view.SignInSeekBar
+                android:id="@+id/siseekbar_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp" />
+
+            <TextView
+                android:id="@+id/tv_sign_in"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="签到"
+                android:textColor="@android:color/white" />
+
+
+            <utouu.functiondemo.view.WaveLineView
+                android:id="@+id/wlview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <utouu.functiondemo.view.SwitchView
+                android:id="@+id/switchview1"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp" />
+
+
+            <utouu.functiondemo.view.ATDragView
+                android:id="@+id/dragview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp" />
+
+            <utouu.functiondemo.view.CountDownCircleView
+                android:id="@+id/countdown_circle_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/activity_horizontal_margin" />
+
+
+            <utouu.functiondemo.view.MyElongVerticalTextView
+                android:id="@+id/vt_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="QQ专属垂直"
+                android:textColor="@android:color/white"
+                android:visibility="visible" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

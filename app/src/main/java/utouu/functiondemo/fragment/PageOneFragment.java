@@ -1,6 +1,7 @@
 package utouu.functiondemo.fragment;
 
 
+import android.os.Bundle;
 import android.view.View;
 
 import utouu.functiondemo.R;
@@ -14,7 +15,7 @@ public class PageOneFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView(View convertView) {
+    protected void initView(View convertView,Bundle savedInstanceState) {
 
     }
 
