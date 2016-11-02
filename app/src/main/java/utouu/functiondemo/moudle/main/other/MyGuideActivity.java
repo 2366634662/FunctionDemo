@@ -54,7 +54,7 @@ public class MyGuideActivity extends BaseActivity {
         vp_myguide_bg.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
-                return img_vg.length;
+                return img_vg == null ? 0 : img_vg.length;
             }
 
             @Override
@@ -96,7 +96,6 @@ public class MyGuideActivity extends BaseActivity {
                         imageViews[i].setBackgroundResource(R.drawable.adv_gallery_unmark);
                     }
                 }
-
             }
 
             @Override
