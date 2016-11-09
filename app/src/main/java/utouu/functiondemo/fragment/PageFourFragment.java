@@ -1,12 +1,14 @@
 package utouu.functiondemo.fragment;
 
-import android.os.Bundle;
+import utouu.functiondemo.framework.base.BaseFragment;
 import android.view.View;
+import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 import utouu.functiondemo.R;
 import utouu.functiondemo.framework.base.BaseFragment;
