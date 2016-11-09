@@ -272,6 +272,22 @@ public class SignInSeekBar extends View {
         valueAnimator.start();
         invalidate();
     }
+    public void signInBackEvent() {
+        currentSignTag--;
+        if (currentSignTag >= viewData.size()) {
+            currentSignTag = viewData.size() - 1;
+        }
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                persent = Float.valueOf(valueAnimator.getAnimatedValue().toString());
+                invalidate();
+                Log.e("TAG--->>", "persent--->" + persent);
+            }
+        });
+        valueAnimator.start();
+        invalidate();
+    }
 
     public void resetSignView() {
         currentSignTag = -1;

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import utouu.functiondemo.framework.util.LogUtils;
 
 /**
  * Created by Du_Li on 2016/10/25.
@@ -61,11 +62,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     private void lazyLoadData() {
         if (!isFirstLoad || !isVisible || !isInitView) {
+            LogUtils.e("执行了---------------");
             return;
         }
-
+        LogUtils.e("外面执行了---------------");
         getData();
-
         isFirstLoad = false;
     }
 

@@ -20,11 +20,11 @@ import utouu.functiondemo.view.SwitchView;
 public class PageFourFragment extends BaseFragment {
 
     private SendCodeButton scb_code;//发送验证码
-    private SignInSeekBar siseekbar_view;//签到
+    private SignInSeekBar siseekbar_view;//仿签到
     private TextView tv_sign_in;//两条交互变换的线
     private SwitchView switchview1;//左右切换的按钮
 
-    private ATDragView dragView;
+    private ATDragView dragView;//在一条线上有两个球可以左右拖动的View
 
     private CountDownCircleView countDownCircleView;
 
@@ -80,10 +80,8 @@ public class PageFourFragment extends BaseFragment {
             public void countDownStop() {
                 Toast.makeText(getActivity(), "计时结束", Toast.LENGTH_LONG).show();
                 LogUtils.e("计时结束");
-
             }
         });
-
 
     }
 
