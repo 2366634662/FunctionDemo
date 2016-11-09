@@ -43,6 +43,8 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="ac434e3f6a08f03f280996402ce21038" />
+
+        <activity android:name=".moudle.main.AnimatorActivity"></activity>
     </application>
 
 </manifest>

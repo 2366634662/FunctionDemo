@@ -1,23 +1,28 @@
 package utouu.functiondemo.fragment;
 
-import utouu.functiondemo.framework.base.BaseFragment;
-import android.view.View;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 import utouu.functiondemo.R;
 import utouu.functiondemo.framework.base.BaseFragment;
 import utouu.functiondemo.framework.util.LogUtils;
+import utouu.functiondemo.framework.util.ToastUtil;
+import utouu.functiondemo.moudle.main.AnimatorActivity;
 import utouu.functiondemo.view.ATDragView;
 import utouu.functiondemo.view.CountDownCircleView;
 import utouu.functiondemo.view.SendCodeButton;
 import utouu.functiondemo.view.SignInSeekBar;
 import utouu.functiondemo.view.SwitchView;
+import utouu.functiondemo.view.circleview.CircleMenu;
+import utouu.functiondemo.view.circleview.OnMenuSelectedListener;
+import utouu.functiondemo.view.circleview.OnMenuStatusChangeListener;
 
 public class PageFourFragment extends BaseFragment {
 
@@ -30,6 +35,18 @@ public class PageFourFragment extends BaseFragment {
 
     private CountDownCircleView countDownCircleView;
 
+    private Button btn_animator;
+
+    private CircleMenu cm_menu;//圆形菜单
+    private int[] iconResArray = new int[4];
+
+    {
+        iconResArray[0] = R.mipmap.nav_icon_home_sel;
+        iconResArray[1] = R.mipmap.nav_icon_my_sel;
+        iconResArray[2] = R.mipmap.nav_icon_order_sel;
+        iconResArray[3] = R.mipmap.nav_icon_server_sel;
+    }
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_mine;
@@ -38,13 +55,14 @@ public class PageFourFragment extends BaseFragment {
     @Override
     protected void initView(View convertView, Bundle savedInstanceState) {
         scb_code = findView(R.id.scb_code);
-
         siseekbar_view = findView(R.id.siseekbar_view);
         tv_sign_in = findView(R.id.tv_sign_in);
         switchview1 = findView(R.id.switchview1);
         dragView = findView(R.id.dragview);
         countDownCircleView = findView(R.id.countdown_circle_view);
-        setOnClick(tv_sign_in, scb_code);
+        btn_animator = findView(R.id.btn_animator);
+        cm_menu = findView(R.id.cm_menu);
+        setOnClick(tv_sign_in, scb_code, btn_animator);
 
     }
 
@@ -85,6 +103,30 @@ public class PageFourFragment extends BaseFragment {
             }
         });
 
+
+        cm_menu.setMainIconResource(R.drawable.qq, R.drawable.weixin);
+        cm_menu.setSubIconResources(iconResArray);
+
+        cm_menu.setOnMenuSelectedListener(new OnMenuSelectedListener() {
+            @Override
+            public void onMenuSelected(int index) {
+                ToastUtil.showShortToast("点击了" + index + "这个位置");
+
+            }
+        });
+        cm_menu.setOnMenuStatusChangeListener(new OnMenuStatusChangeListener() {
+            @Override
+            public void onMenuOpened() {
+
+            }
+
+            @Override
+            public void onMenuClosed() {
+
+            }
+        });
+
+
     }
 
     @Override
@@ -101,6 +143,9 @@ public class PageFourFragment extends BaseFragment {
                 break;
             case R.id.scb_code:
                 scb_code.start();
+                break;
+            case R.id.btn_animator:
+                startActivity(new Intent(getActivity(), AnimatorActivity.class));
                 break;
         }
 

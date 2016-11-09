@@ -26,6 +26,12 @@
                 app:end_text="重新发送验证码！"
                 app:start_text="发送验证码" />
 
+            <Button
+                android:id="@+id/btn_animator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="动画" />
+
             <utouu.functiondemo.view.SignInSeekBar
                 android:id="@+id/siseekbar_view"
                 android:layout_width="match_parent"
@@ -78,9 +84,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:text="QQ专属垂直"
+                android:text="文字垂直的TextView"
                 android:textColor="@android:color/white"
                 android:visibility="visible" />
+
+            <utouu.functiondemo.view.circleview.CircleMenu
+                android:id="@+id/cm_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
 
         </LinearLayout>
     </ScrollView>

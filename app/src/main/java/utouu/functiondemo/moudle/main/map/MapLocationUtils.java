@@ -9,9 +9,6 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationClientOption.AMapLocationMode;
 import com.amap.api.location.AMapLocationListener;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import utouu.functiondemo.bean.LocationBean;
 
 /**
@@ -95,44 +92,27 @@ public class MapLocationUtils {
                 if (aMapLocation != null) {
                     if (aMapLocation.getErrorCode() == 0) {
                         //定位成功回调信息，设置相关消息
-                        String type = "" + aMapLocation.getLocationType();//获取当前定位结果来源，如网络定位结果，详见定位类型表
-                        String latitude = "" + aMapLocation.getLatitude();//获取纬度
-                        String longitude = "" + aMapLocation.getLongitude();//获取经度
-                        String accuracy = "" + aMapLocation.getAccuracy();//获取精度信息
-                        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                        Date date = new Date(aMapLocation.getTime());
-                        String locationdate = df.format(date);//定位时间
-
-                        String address = aMapLocation.getAddress();//地址，如果option中设置isNeedAddress为false，则没有此结果，网络定位结果中会有地址信息，GPS定位不返回地址信息。
-                        String country = aMapLocation.getCountry();//国家信息
-                        String province = aMapLocation.getProvince();//省信息
-                        String city = aMapLocation.getCity();//城市信息
-                        String district = aMapLocation.getDistrict();//城区信息
-                        String street = aMapLocation.getStreet();//街道信息
-                        String streeNum = aMapLocation.getStreetNum();//街道门牌号信息
-                        String cityCode = aMapLocation.getCityCode();//城市编码
-                        String adCode = aMapLocation.getAdCode();//地区编码
-                        String aoiNamse = aMapLocation.getAoiName();//获取当前定位点的AOI信息
-
-                        locationBean.setType(type);
-                        locationBean.setLatitude(latitude);
-                        locationBean.setLongitude(longitude);
-                        locationBean.setAccuracy(accuracy);
-                        locationBean.setLocationdate(locationdate);
-                        locationBean.setAddress(address);
-                        locationBean.setCountry(country);
-                        locationBean.setProvince(province);
-                        locationBean.setCity(city);
-                        locationBean.setDistrict(district);
-                        locationBean.setStreet(street);
-                        locationBean.setStreetNum(streeNum);
-                        locationBean.setCityCode(cityCode);
-                        locationBean.setAdCode(adCode);
-                        locationBean.setAoiName(aoiNamse);
+//                        String type = "" + aMapLocation.getLocationType();//获取当前定位结果来源，如网络定位结果，详见定位类型表
+//                        String latitude = "" + aMapLocation.getLatitude();//获取纬度
+//                        String longitude = "" + aMapLocation.getLongitude();//获取经度
+//                        String accuracy = "" + aMapLocation.getAccuracy();//获取精度信息
+//                        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//                        Date date = new Date(aMapLocation.getTime());
+//                        String locationdate = df.format(date);//定位时间
+//
+//                        String address = aMapLocation.getAddress();//地址，如果option中设置isNeedAddress为false，则没有此结果，网络定位结果中会有地址信息，GPS定位不返回地址信息。
+//                        String country = aMapLocation.getCountry();//国家信息
+//                        String province = aMapLocation.getProvince();//省信息
+//                        String city = aMapLocation.getCity();//城市信息
+//                        String district = aMapLocation.getDistrict();//城区信息
+//                        String street = aMapLocation.getStreet();//街道信息
+//                        String streeNum = aMapLocation.getStreetNum();//街道门牌号信息
+//                        String cityCode = aMapLocation.getCityCode();//城市编码
+//                        String adCode = aMapLocation.getAdCode();//地区编码
+//                        String aoiNamse = aMapLocation.getAoiName();//获取当前定位点的AOI信息
                         if (getLocationDatas != null) {
-                            getLocationDatas.getLocationData(locationBean);
+                            getLocationDatas.getLocationData(aMapLocation);
                         }
-
 
                     } else {
                         //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
@@ -157,7 +137,7 @@ public class MapLocationUtils {
     }
 
     public interface GetLocationDatas {
-        void getLocationData(LocationBean locationBean);
+        void getLocationData(AMapLocation aMapLocation);
 
         void getErrorMsg(String errCode, String errorInfo);
 

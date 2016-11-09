@@ -17,6 +17,7 @@ public abstract class BaseRecyclerCommonAdapter<T> extends RecyclerView.Adapter<
         mContext = context;
     }
 
+
     public void setmDatas(List<T> mDatas) {
         this.mDatas = mDatas;
     }

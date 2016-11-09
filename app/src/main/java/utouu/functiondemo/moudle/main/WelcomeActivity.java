@@ -7,8 +7,9 @@ import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.amap.api.location.AMapLocation;
+
 import utouu.functiondemo.R;
-import utouu.functiondemo.bean.LocationBean;
 import utouu.functiondemo.framework.base.BaseActivity;
 import utouu.functiondemo.framework.sharedpreferences.SharePrefreceHelper;
 import utouu.functiondemo.framework.util.LogUtils;
@@ -42,7 +43,7 @@ public class WelcomeActivity extends BaseActivity implements Handler.Callback {
                 .regAndStartLocation(this)
                 .setGetLocationDatas(new MapLocationUtils.GetLocationDatas() {
                     @Override
-                    public void getLocationData(LocationBean locationBean) {
+                    public void getLocationData(AMapLocation locationBean) {
 
                         LogUtils.e(locationBean.getAddress());
 
