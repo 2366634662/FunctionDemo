@@ -26,7 +26,7 @@ public class TabLayoutAndViewPagerActivity extends BaseActivity {
     TabLayout tlayoutTitle;
     @BindView(R.id.vp_content)
     ViewPager vpContent;
-    private static final String TAB_NAME_1 = "流量图像";
+    private static final String TAB_NAME_1 = "美女图像";
     private static final String TAB_NAME_2 = "监控视频";
     private static final String TAB_NAME_3 = "个人中心";
     private List<String> tabNames;
