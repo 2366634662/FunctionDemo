@@ -79,7 +79,6 @@ public class SignInSeekBar extends View {
 
     public SignInSeekBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        Log.e("--TAG---", "构造函数--->>");
         initAttrs(context, attrs, defStyleAttr);
         initToolsAndData();
     }
@@ -87,7 +86,6 @@ public class SignInSeekBar extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        Log.e("--TAG---", "onSizeChanged--->>");
         viewPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEF_PADDING, getResources().getDisplayMetrics());
         int textMarginTop = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, TEXT_MARGIN_TOP, getResources().getDisplayMetrics());
 
@@ -109,7 +107,6 @@ public class SignInSeekBar extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        Log.e("--TAG---", "onMeasure--->>");
 
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int measureHeight;
