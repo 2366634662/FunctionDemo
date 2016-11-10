@@ -38,13 +38,14 @@ public class PageFourFragment extends BaseFragment {
     private Button btn_animator;
 
     private CircleMenu cm_menu;//圆形菜单
-    private int[] iconResArray = new int[4];
+    private int[] iconResArray = new int[5];
 
     {
         iconResArray[0] = R.mipmap.nav_icon_home_sel;
         iconResArray[1] = R.mipmap.nav_icon_my_sel;
         iconResArray[2] = R.mipmap.nav_icon_order_sel;
         iconResArray[3] = R.mipmap.nav_icon_server_sel;
+        iconResArray[4] = R.mipmap.nav_icon_server_sel;
     }
 
     @Override

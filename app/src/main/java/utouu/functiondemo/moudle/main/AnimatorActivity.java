@@ -3,21 +3,25 @@ package utouu.functiondemo.moudle.main;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
-import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import utouu.functiondemo.R;
 import utouu.functiondemo.framework.base.BaseActivity;
 import utouu.functiondemo.framework.util.SnackBarUtils;
+import utouu.functiondemo.view.CircleMenu;
+
+import static utouu.functiondemo.R.id.iv_1;
+import static utouu.functiondemo.R.id.iv_iv1;
 
 public class AnimatorActivity extends BaseActivity {
 
@@ -43,8 +47,38 @@ public class AnimatorActivity extends BaseActivity {
     Button btn10;
     @BindView(R.id.btn_11)
     Button btn11;
+    @BindView(R.id.iv_iv2)
+    ImageView ivIv2;
+    @BindView(R.id.iv_iv3)
+    ImageView ivIv3;
+    @BindView(R.id.iv_iv4)
+    ImageView ivIv4;
+    @BindView(R.id.iv_iv5)
+    ImageView ivIv5;
+    @BindView(R.id.iv_iv6)
+    ImageView ivIv6;
+    @BindView(iv_iv1)
+    ImageView ivIv1;
+    @BindView(R.id.iv_2)
+    ImageView iv2;
+    @BindView(R.id.iv_3)
+    ImageView iv3;
+    @BindView(R.id.iv_4)
+    ImageView iv4;
+    @BindView(R.id.iv_5)
+    ImageView iv5;
+    @BindView(R.id.iv_6)
+    ImageView iv6;
+    @BindView(R.id.iv_7)
+    ImageView iv7;
+    @BindView(iv_1)
+    ImageView iv1;
     private ImageView iv_ani_test;
 
+
+    private List<ImageView> imageViews2 = new ArrayList<>();
+    private List<ImageView> imageViews1 = new ArrayList<>();
+    private CircleMenu circleMenu;
 
     @Override
     protected int getLayout() {
@@ -54,12 +88,23 @@ public class AnimatorActivity extends BaseActivity {
     @Override
     protected void initView(Bundle savedInstanceState) {
         iv_ani_test = findView(R.id.iv_ani_test);
+        imageViews1.add(ivIv2);
+        imageViews1.add(ivIv3);
+        imageViews1.add(ivIv4);
+        imageViews1.add(ivIv5);
+        imageViews1.add(ivIv6);
+
+        imageViews2.add(iv2);
+        imageViews2.add(iv3);
+        imageViews2.add(iv4);
+        imageViews2.add(iv5);
+        imageViews2.add(iv6);
+        imageViews2.add(iv7);
 
     }
 
     @Override
     protected void initDatas() {
-
 
     }
 
@@ -68,7 +113,7 @@ public class AnimatorActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.btn_01, R.id.btn_02, R.id.btn_03, R.id.btn_04, R.id.btn_05, R.id.btn_06, R.id.btn_07, R.id.btn_08, R.id.btn_09, R.id.btn_10, R.id.btn_11})
+    @OnClick({R.id.iv_iv1, R.id.iv_1, R.id.btn_01, R.id.btn_02, R.id.btn_03, R.id.btn_04, R.id.btn_05, R.id.btn_06, R.id.btn_07, R.id.btn_08, R.id.btn_09, R.id.btn_10, R.id.btn_11})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_01://透明
@@ -145,33 +190,46 @@ public class AnimatorActivity extends BaseActivity {
             case R.id.btn_11:
 
                 break;
+            /**
+             * 圆形菜单
+             */
+            case R.id.iv_iv1:
+                circleMenu = new CircleMenu(imageViews1);
+                Boolean isShowing = (Boolean) ivIv1.getTag();
+                if (null == isShowing || isShowing == false) {
+                    ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(ivIv1, "rotation", 0, 45);
+                    objectAnimator.setDuration(500);
+                    objectAnimator.start();
+                    ivIv1.setTag(true);
+                    circleMenu.showCircleMenu();
+                } else {
+                    ivIv1.setTag(false);
+                    ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(ivIv1, "rotation", 45, 0);
+                    objectAnimator.setDuration(500);
+                    objectAnimator.start();
+                    circleMenu.closeCircleMenu();
+                }
+                break;
+            /**
+             * 扇形菜单
+             */
+            case R.id.iv_1:
+                circleMenu = new CircleMenu(imageViews2);
+                Boolean isShowing1 = (Boolean) iv1.getTag();
+                if (null == isShowing1 || isShowing1 == false) {
+                    ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(iv1, "rotation", 0, 45);
+                    objectAnimator.setDuration(500);
+                    objectAnimator.start();
+                    iv1.setTag(true);
+                    circleMenu.showSectorMenu();
+                } else {
+                    iv1.setTag(false);
+                    ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(iv1, "rotation", 45, 0);
+                    objectAnimator.setDuration(500);
+                    objectAnimator.start();
+                    circleMenu.closeSectorMenu();
+                }
+                break;
         }
     }
-    /**
-     * 为进度设置动画
-     * ValueAnimator是整个属性动画机制当中最核心的一个类，属性动画的运行机制是通过不断地对值进行操作来实现的，
-     * 而初始值和结束值之间的动画过渡就是由ValueAnimator这个类来负责计算的。
-     * 它的内部使用一种时间循环的机制来计算值与值之间的动画过渡，
-     * 我们只需要将初始值和结束值提供给ValueAnimator，并且告诉它动画所需运行的时长，
-     * 那么ValueAnimator就会自动帮我们完成从初始值平滑地过渡到结束值这样的效果。
-     *
-     * @param last
-     * @param current
-     */
-    private float currentAngleLength;
-    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
-    private void setAnimation(float last, float current, int length) {
-        ValueAnimator progressAnimator = ValueAnimator.ofFloat(last, current);
-        progressAnimator.setDuration(length);
-        progressAnimator.setTarget(currentAngleLength);
-        progressAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                currentAngleLength = (float) animation.getAnimatedValue();
-//                invalidate();
-            }
-        });
-        progressAnimator.start();
-    }
-
 }

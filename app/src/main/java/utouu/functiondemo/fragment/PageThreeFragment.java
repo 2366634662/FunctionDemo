@@ -1,13 +1,22 @@
 package utouu.functiondemo.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
+import butterknife.BindView;
+import butterknife.OnClick;
 import utouu.functiondemo.R;
 import utouu.functiondemo.framework.base.BaseFragment;
+import utouu.functiondemo.moudle.main.other.TabLayoutAndViewPagerActivity;
 
 public class PageThreeFragment extends BaseFragment {
+
+
+    @BindView(R.id.btn_totabactivity)
+    Button btnTotabactivity;
 
     @Override
     protected int getLayoutId() {
@@ -16,7 +25,6 @@ public class PageThreeFragment extends BaseFragment {
 
     @Override
     protected void initView(View convertView, Bundle savedInstanceState) {
-
 
     }
 
@@ -32,36 +40,17 @@ public class PageThreeFragment extends BaseFragment {
     }
 
     @Override
+    @OnClick(R.id.btn_totabactivity)
     public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.btn_totabactivity:
+                startActivity(new Intent(getActivity(), TabLayoutAndViewPagerActivity.class));
+                break;
+        }
+
 
     }
 
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
-//        mMapView.onDestroy();
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        //在activity执行onResume时执行mMapView.onResume ()，实现地图生命周期管理
-//        mMapView.onResume();
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        //在activity执行onPause时执行mMapView.onPause ()，实现地图生命周期管理
-//        mMapView.onPause();
-//    }
-//
-//    @Override
-//    public void onSaveInstanceState(Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，实现地图生命周期管理
-//        mMapView.onSaveInstanceState(outState);
-//    }
 
 }
