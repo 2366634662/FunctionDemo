@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/back_round"
     tools:context="utouu.functiondemo.moudle.main.RegisterActivity">
 
     <!-- 顶部 -->
@@ -13,7 +12,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp" >
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/fanhui"
@@ -32,9 +31,10 @@
             android:textColor="#FFFFFF"
             android:textSize="20dp" />
     </FrameLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <!-- 头像 -->
 
@@ -45,7 +45,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="60dp"
-            android:background="@drawable/logo"
+            android:background="@mipmap/ic_launcher"
             android:scaleType="fitXY"
             android:textColor="#D3D3D3" />
     </RelativeLayout>
@@ -60,7 +60,7 @@
         android:layout_marginTop="10dp"
         android:background="#ffffff"
         android:orientation="horizontal"
-        android:padding="5dp" >
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/zc_user"
@@ -75,8 +75,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:hint="请设置用户名"
-            android:singleLine="true" >
-        </EditText>
+            android:singleLine="true"></EditText>
     </LinearLayout>
     <!-- 手机号码 -->
 
@@ -88,7 +87,7 @@
         android:layout_marginTop="10dp"
         android:background="#ffffff"
         android:orientation="horizontal"
-        android:padding="5dp" >
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/zc_phone_one"
@@ -109,13 +108,14 @@
             android:numeric="integer"
             android:singleLine="true" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="#FFFFFF"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/zc_key_txt"
@@ -147,7 +147,7 @@
         android:layout_marginTop="10dp"
         android:background="#FFFFFF"
         android:orientation="horizontal"
-        android:padding="5dp" >
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/zc_lock"
@@ -164,8 +164,7 @@
             android:layout_weight="1"
             android:hint="请设置登录密码"
             android:password="true"
-            android:singleLine="true" >
-        </EditText>
+            android:singleLine="true"></EditText>
 
         <ImageView
             android:id="@+id/yanjing"
@@ -186,7 +185,7 @@
         android:layout_marginTop="10dp"
         android:background="#FFFFFF"
         android:orientation="horizontal"
-        android:padding="5dp" >
+        android:padding="5dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -204,9 +203,9 @@
             android:maxLength="6"
             android:numeric="integer"
             android:password="true"
-            android:singleLine="true" >
-        </EditText>
+            android:singleLine="true"></EditText>
     </LinearLayout>
+
     <Button
         android:id="@+id/zc_register"
         android:layout_width="match_parent"

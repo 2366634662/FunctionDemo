@@ -4,7 +4,6 @@
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_round"
     android:orientation="vertical"
     tools:context="utouu.functiondemo.moudle.main.LoginActivity">
 
@@ -23,7 +22,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="60dp"
-            android:background="@drawable/logo"
+            android:background="@mipmap/ic_launcher"
             android:scaleType="fitXY"
             android:textColor="#D3D3D3" />
     </RelativeLayout>

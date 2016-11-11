@@ -22,18 +22,13 @@ import utouu.functiondemo.framework.util.ToastUtil;
 public class ForgetActivity extends BaseActivity implements Handler.Callback{
     ImageView fanhui;
     Button next;
-    // 手机号码
     String phone;
     EditText zc_phone_txt;
-    // 发送验证码
     Button zc_send;
-    // 时间设置
     private int time = 60;
     private Handler mHandler;
-    private boolean showPwdFlag = false;// false 隐藏 true 显示
-    // 验证码
+    private boolean showPwdFlag = false;
     EditText zc_key_txt;
-    // 发送的验证码
     String yz_code;
     @Override
     protected int getLayout() {

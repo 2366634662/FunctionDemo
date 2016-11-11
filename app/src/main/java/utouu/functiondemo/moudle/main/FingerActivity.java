@@ -8,7 +8,7 @@ import android.widget.Button;
 import utouu.functiondemo.R;
 import utouu.functiondemo.framework.base.BaseActivity;
 import utouu.functiondemo.framework.sharedpreferences.SharePrefreceHelper;
-import utouu.functiondemo.moudle.main.other.FingerVerify;
+import utouu.functiondemo.FingerVerify;
 
 public class FingerActivity extends BaseActivity {
 

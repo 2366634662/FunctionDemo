@@ -1,4 +1,4 @@
-package utouu.functiondemo.moudle.main.other;
+package utouu.functiondemo;
 
 import android.Manifest;
 import android.app.Activity;
@@ -12,11 +12,10 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.widget.Toast;
 
-import utouu.functiondemo.MainActivity;
 import utouu.functiondemo.moudle.main.LoginActivity;
 
 /**
- * Created by Du_Li on 2016/11/11.
+ * Created by Du_Li on 2016/11/10.
  * Desc:
  */
 public class FingerVerify {
@@ -122,7 +121,6 @@ public class FingerVerify {
 
 
     private void startListening(FingerprintManager.CryptoObject cryptoObject) {
-        //android studio 上，没有这个会报错
         if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(activity, "没有指纹识别权限！", Toast.LENGTH_SHORT).show();
             return;
@@ -141,9 +139,12 @@ public class FingerVerify {
             activity.startActivityForResult(intent, REQUEST_CODE_CONFIRM_DEVICE_CREDENTIALS);
         }
     }
+
     /**
+     *
      * 如果有锁频密码  在Activity中的onActivityResult中设置
      */
+
 //    @Override
 //    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        if (requestCode == REQUEST_CODE_CONFIRM_DEVICE_CREDENTIALS) {
