@@ -40,5 +40,13 @@ public class SharePrefreceHelper extends SPUtils {
         return getBoolean("isFirstIn", true);
     }
 
+    public void setIsFinger(boolean isFirstIn) {
+        putBoolean("isFinger", isFirstIn);
+    }
+
+    public boolean getIsFinger() {
+        return getBoolean("isFinger", true);
+    }
+
 
 }
