@@ -15,7 +15,7 @@
     <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <!--指纹识别-->
+    <!-- 指纹识别 -->
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <application
@@ -49,7 +49,13 @@
 
         <activity android:name=".moudle.main.AnimatorActivity" />
         <activity android:name=".moudle.main.other.TabLayoutAndViewPagerActivity" />
-        <activity android:name=".moudle.main.FingerActivity"></activity>
+        <activity android:name=".moudle.main.FingerActivity" />
+        <activity android:name=".moudle.main.reciver.BoradCastReciverActivity" />
+
+        <service android:name=".moudle.main.reciver.BroadService" />
+
+        <activity android:name=".moudle.main.reciver.CallBackServiceActivity"></activity>
+        <service android:name=".moudle.main.reciver.CallBackService"/>
     </application>
 
 </manifest>
